@@ -17,12 +17,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.main_recyclerview);
-        mCustomGridAdapter = new MyCustomGridAdapter(this, generateTestItems(20));
-        mRecyclerView.setAdapter(mCustomGridAdapter);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 4)); // 4 is for the number of columns, change as needed.
+        mRecyclerView = (RecyclerView) findViewById(R.id.main_recyclerview); // Find view
+        mCustomGridAdapter = new MyCustomGridAdapter(this, generateTestItems(20)); // Create adapter
+        mRecyclerView.setAdapter(mCustomGridAdapter); // Set adapter to RV
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 4)); // 4 - the number of columns
     }
 
+    /**
+     * Creates an ArrayList of test strings for populating the RV.
+     */
     private ArrayList<String> generateTestItems(int itemNumber) {
         ArrayList<String> testItemList = new ArrayList<>();
         for (int i = 0; i < itemNumber; i++) {

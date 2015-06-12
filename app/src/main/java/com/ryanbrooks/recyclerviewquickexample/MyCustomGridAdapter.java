@@ -17,6 +17,10 @@ public class MyCustomGridAdapter extends RecyclerView.Adapter<GridItemViewHolder
     private ArrayList<String> mGridItemList; // Your list of data to populate list with
     private LayoutInflater mInflater; // LayoutInflater for creating views
 
+    /**
+     * Public constructor that takes in Context for creating LayoutInflater and ArrayList of test
+     * data
+     */
     public MyCustomGridAdapter(Context context, ArrayList<String> gridItemList) {
         mContext = context;
         mGridItemList = gridItemList;
@@ -24,7 +28,8 @@ public class MyCustomGridAdapter extends RecyclerView.Adapter<GridItemViewHolder
     }
 
     /**
-     * This is where you create your view. Just inflate it and return your inflated view.
+     * This is where you create your view. Just inflate it with the layout id of the RV item and
+     * the inflater we created in the constructor and return your inflated view.
      */
     @Override
     public GridItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -34,7 +39,7 @@ public class MyCustomGridAdapter extends RecyclerView.Adapter<GridItemViewHolder
 
     /**
      * This is where you actually set the data. The TextView that I created in grid_item.xml and
-     * defined in GridItemViewHolder is populated with the text in the list at the specified
+     * defined in GridItemViewHolder is populated with the text in the list at the passed
      * position here.
      */
     @Override
@@ -44,7 +49,6 @@ public class MyCustomGridAdapter extends RecyclerView.Adapter<GridItemViewHolder
 
     /**
      * The size of the RV is equivalent to the size of the list, so just return the list's size.
-     * @return
      */
     @Override
     public int getItemCount() {
